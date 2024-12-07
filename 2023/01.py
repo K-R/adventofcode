@@ -39,7 +39,7 @@ def get_calibration_value(text: str) -> int | None:
     return calibration_value
 
 
-filepath = "../input/01.txt"
+filepath = "input/01.txt"
 
 with open(filepath) as file:
     total = 0

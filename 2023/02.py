@@ -33,7 +33,7 @@ def game_is_possible(green_cubes: int, blue_cubes: int, red_cubes: int) -> bool:
 
     return True
 
-filepath = "../input/02.txt"
+filepath = "input/02.txt"
 with open(filepath) as file:
     total = 0
     power = 0

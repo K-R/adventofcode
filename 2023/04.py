@@ -11,7 +11,7 @@ def calculate_card_points(numbers: set) -> int:
     return 2 ** factor
 
 
-filepath = "../input/04.txt"
+filepath = "input/04.txt"
 with open(filepath) as file:
     total = 0
     cards: dict[int, int] = {}

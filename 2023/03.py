@@ -49,7 +49,7 @@ def get_sum_of_line(line_above, line_below, line):
     return total
 
 
-filepath = "../input/03.txt"
+filepath = "input/03.txt"
 with open(filepath) as file:
     lines = [line.strip() for line in file.readlines()]
     total = 0
