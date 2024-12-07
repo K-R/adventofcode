@@ -1,7 +1,3 @@
-import time
-
-start = time.time()
-
 filepath = "input/01.txt"
 
 with open(filepath) as file:
