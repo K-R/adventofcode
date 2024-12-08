@@ -27,8 +27,8 @@ def is_safe_report(report: list[int]) -> int | None:
 
 with open("input/02.txt") as file:
     reports = []
-    for file in file.readlines():
-        report = [int(level) for level in file.split()]
+    for line in file.readlines():
+        report = [int(level) for level in line.split()]
         reports.append(report)
 
 total_safe_reports = 0
