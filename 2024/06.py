@@ -14,7 +14,7 @@ def get_current_position(map_data):
 
 
 def get_number_of_distinct_positions(map_data, obstruction_x_coordinate = None, obstruction_y_coordinate = None):    
-    if (obstruction_x_coordinate or obstruction_x_coordinate == 0) and (obstruction_y_coordinate or obstruction_y_coordinate == 0):
+    if obstruction_x_coordinate is not None and obstruction_y_coordinate is not None:
         map_data[obstruction_y_coordinate][obstruction_x_coordinate] = '#'
 
     x, y = get_current_position(map_data)
