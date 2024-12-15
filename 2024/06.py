@@ -85,6 +85,3 @@ for row_number, row in enumerate(map_grid):
         total_distinct_positions, is_stuck_in_loop = get_number_of_distinct_positions(data, column_number, row_number)
         if is_stuck_in_loop:
             total_obstruction_placement_options += 1
-
-print(total_distinct_positions)
-print(total_obstruction_placement_options)
