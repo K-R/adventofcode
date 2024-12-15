@@ -75,6 +75,7 @@ def get_number_of_distinct_positions(map_data, obstruction_x_coordinate = None, 
 
 total_distinct_positions, is_stuck_in_loop = get_number_of_distinct_positions(map_grid)
 
+# TODO only run for points in guard_path
 total_obstruction_placement_options = 0
 for row_number, row in enumerate(map_grid):
     for column_number, character in enumerate(row):
