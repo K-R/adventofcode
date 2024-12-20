@@ -7,38 +7,25 @@ with open("input/07.txt") as file:
         numbers = [int(number) for number in number_row.strip().split(' ')]
         equations.append((int(target_number), numbers))
 
-
 def is_valid_equation(numbers: list[int], operators: list[str], target_number: int) -> bool:
-    total = 0
+    total = numbers[0]
     for index, operator in enumerate(operators):
-        if index == 0:
-            if operator == '+':
-                total = numbers[index] + numbers[index + 1]
-                continue
-            elif operator == '*':
-                total = numbers[index] * numbers[index + 1]
-                continue
-            elif operator == '&':
-                total = int(str(numbers[index]) + str(numbers[index + 1]))
-                continue
-        
         if operator == '+':
             total +=  numbers[index + 1]
             continue
         elif operator == '*':
             total *=  numbers[index + 1]
             continue
-        elif operator == '&':
+        elif operator == '||':
             total = int(str(total) + str(numbers[index + 1]))
             continue
 
     return total == target_number
     
-
 total_calibration_result = 0
 for equation in equations:
     target_number, numbers = equation
-    operators = '+*&'
+    operators = ['+', '*', "||"]
     
     operator_combinations = itertools.product(operators, repeat=len(numbers) - 1)
     for operators in operator_combinations:
