@@ -69,20 +69,19 @@ def get_number_of_distinct_positions(map_data, obstruction_x_coordinate = None, 
                 continue
             x = new_x
 
-    total_distinct_positions = len(set(guard_path))
+    unique_guard_coordinates = set(guard_path)
+    total_distinct_positions = len(unique_guard_coordinates)
     is_stuck_in_loop = number_of_steps == (map_width * map_height)
-    return total_distinct_positions, is_stuck_in_loop
+    return total_distinct_positions, is_stuck_in_loop, unique_guard_coordinates
 
-total_distinct_positions, is_stuck_in_loop = get_number_of_distinct_positions(map_grid)
+total_distinct_positions, is_stuck_in_loop, guard_path = get_number_of_distinct_positions(map_grid)
 
-# TODO only run for points in guard_path
 total_obstruction_placement_options = 0
-for row_number, row in enumerate(map_grid):
-    for column_number, character in enumerate(row):
-        if map_grid[row_number][column_number] != '.':
+for coordinate in guard_path:
+    x,y = coordinate
+    data = deepcopy(map_grid)
+    if data[y][x] != '.':
             continue
-
-        data = deepcopy(map_grid)
-        total_distinct_positions, is_stuck_in_loop = get_number_of_distinct_positions(data, column_number, row_number)
-        if is_stuck_in_loop:
-            total_obstruction_placement_options += 1
+    _, is_stuck_in_loop, _ = get_number_of_distinct_positions(data, x, y)
+    if is_stuck_in_loop:
+        total_obstruction_placement_options += 1
