@@ -2,7 +2,6 @@ filepath = "input/01.txt"
 
 rotations = []
 with open(filepath) as file:
-    total = 0
     for line in file.readlines():
         text = line.strip()
         rotations.append(text)
