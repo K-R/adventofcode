@@ -9,8 +9,6 @@ def get_movable_papers(grid) -> list[tuple[str, str]]:
             if character != '@':
                 continue
             
-            # print(f'search for {x, y}')
-
             coordinates = [
                 {'x': x - 1,'y': y - 1},
                 {'x': x - 1,'y': y},
@@ -30,14 +28,10 @@ def get_movable_papers(grid) -> list[tuple[str, str]]:
                 if coordinate['y'] < 0 or coordinate['y'] > len(line) - 1:
                     continue
                 
-                # print(f"looking at {coordinate['x'], coordinate['y']} for total x of {len(lines)} and width of {len(line)}")
-
                 shelve = lines[coordinate['x']][coordinate['y']]
                 if '@' in shelve:
-                    # print(f"Adjecent role at {coordinate['x'], coordinate['y']} for column with value {shelve}")
                     paper_rolls += 1
             
-            # print(f"number of adjecent paper rolls {paper_rolls} for {x, y} \n")
             if paper_rolls < 4:
                 coordinates_of_papers_to_move.append((x, y))
     return coordinates_of_papers_to_move
